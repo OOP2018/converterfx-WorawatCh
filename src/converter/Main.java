@@ -6,7 +6,17 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+/**
+ * Main of program to run unit converter.
+ * 
+ * @author Worawat Chueajedton
+ *
+ */
 public class Main extends Application {
+	
+	/**
+	 * Set the UI.
+	 */
 	@Override
 	public void start(Stage stage) {
 		try {
@@ -20,6 +30,10 @@ public class Main extends Application {
 		}
 	}
 
+	/**
+	 * Launch program.
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		launch(args);
 	}

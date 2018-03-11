@@ -77,6 +77,11 @@ public class ConverterController {
 
 	}
 
+	/**
+	 * Clear all textfield.
+	 * 
+	 * @param event
+	 */
 	public void handleClear(ActionEvent event) {
 		textfield1.setText(null);
 		textfield2.setText(null);
