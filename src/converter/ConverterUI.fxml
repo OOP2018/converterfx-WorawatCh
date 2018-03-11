@@ -12,8 +12,8 @@
    <children>
       <FlowPane layoutX="302.0" layoutY="130.0" prefHeight="27.0" prefWidth="65.0" />
       <Label alignment="CENTER" layoutX="297.0" layoutY="31.0" text="=" AnchorPane.topAnchor="31.0" />
-      <TextField id="textfield1" fx:id="textfield1" layoutX="14.0" layoutY="26.0" onKeyPressed="#handleConvert" onKeyReleased="#handleConvert" prefHeight="31.0" prefWidth="157.0" AnchorPane.topAnchor="26.0" />
-      <TextField id="textfield2" fx:id="textfield2" layoutX="322.0" layoutY="26.0" prefHeight="31.0" prefWidth="157.0" AnchorPane.topAnchor="26.0" />
+      <TextField id="textfield1" fx:id="textfield1" layoutX="14.0" layoutY="26.0" onAction="#handleConvert" prefHeight="31.0" prefWidth="157.0" AnchorPane.topAnchor="26.0" />
+      <TextField id="textfield2" fx:id="textfield2" layoutX="322.0" layoutY="26.0" onAction="#handleConvert" prefHeight="31.0" prefWidth="157.0" AnchorPane.topAnchor="26.0" />
       <Button fx:id="button1" alignment="CENTER" layoutX="613.0" layoutY="26.0" mnemonicParsing="false" onAction="#handleConvert" text="Convert" AnchorPane.topAnchor="26.0" />
       <Button fx:id="button2" alignment="CENTER" layoutX="699.0" layoutY="26.0" mnemonicParsing="false" onAction="#handleClear" text="Clear" AnchorPane.topAnchor="26.0" />
       <ComboBox fx:id="combo1" layoutX="185.0" layoutY="26.0" prefHeight="31.0" prefWidth="104.0" />

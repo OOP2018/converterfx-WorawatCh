@@ -20,30 +20,70 @@ public class ConverterController {
 	@FXML
 	Button button2;
 	@FXML
-	ComboBox<String> combo1;
+	ComboBox<Length> combo1;
 	@FXML
-	ComboBox<String> combo2;
+	ComboBox<Length> combo2;
+
+	/**
+	 * JavaFX calls the initialize() method of your controller when it creates
+	 * the UI form, after the components have been created and @FXML annotated
+	 * attributes have been set.
+	 *
+	 * This is a hook to initialize anything your controller or UI needs.
+	 */
+	@FXML
+	public void initialize() {
+		// This is for testing
+		System.out.println("Running initialize");
+		if (combo1 != null) {
+			combo1.getItems().addAll(Length.values());
+			combo1.getSelectionModel().select(0); // select an item to show
+		}
+		if (combo2 != null) {
+			combo2.getItems().addAll(Length.values());
+			combo2.getSelectionModel().select(1); // select an item to show
+		}
+	}
 
 	/**
 	 * Convert a distance from one unit to another.
 	 */
 	public void handleConvert(ActionEvent event) {
-		// read values from textfield(s)
+		textfield1.setStyle("-fx-text-inner-color: black;");
+		textfield2.setStyle("-fx-text-inner-color: black;");
 		String text = textfield1.getText().trim();
-		double value1;
-		try {
-			value1 = Double.parseDouble(text);
-			textfield2.appendText(String.format("%.4g", value1 * 1.609344));
-		} catch (NumberFormatException e) {
-			Popup popup = new Popup();
-			popup.setX(300);
-			popup.setY(200);
-			popup.show(popup);
+		String text1 = textfield2.getText().trim();
+		Length lengthValue = combo1.getValue();
+		Length lengthValue1 = combo2.getValue();
+		if (!textfield1.getText().equals("")) {
+			try {
+				double value1 = Double.parseDouble(text);
+				textfield2.setText(String.format("%.4g", (lengthValue.getValue() / lengthValue1.getValue()) * value1));
+			} catch (NumberFormatException e) {
+				textfield1.setStyle("-fx-text-inner-color: red;");
+				textfield1.setText("Sorry invalid value");
+			}
 		}
+		
+		else if (!textfield2.getText().equals("")) {
+			try {
+				double value2 = Double.parseDouble(text1);
+				textfield1.setText(String.format("%.4g", (lengthValue1.getValue() / lengthValue.getValue()) * value2));
+			} catch (NumberFormatException e) {
+				textfield2.setStyle("-fx-text-inner-color: red;");
+				textfield2.setText("Sorry invalid value");
+			}
+		}
+
 	}
 
 	public void handleClear(ActionEvent event) {
+		textfield1.setText(null);
+		textfield2.setText(null);
+		textfield1.setStyle("-fx-text-inner-color: black;");
+		textfield2.setStyle("-fx-text-inner-color: black;");
 		textfield1.clear();
 		textfield2.clear();
 	}
+
 }
